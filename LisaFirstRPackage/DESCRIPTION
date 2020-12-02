@@ -1,0 +1,14 @@
+Package: LisaFirstRPackage
+Title: Building a R Package for STAT 302
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Lisa",
+           family = "Jiang",
+           role = c("aut", "cre"),
+           email = "lj111217@uw.edu")
+Description: This package demonstrates how to build a R package for STAT 302.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1
