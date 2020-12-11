@@ -16,3 +16,5 @@ Suggests:
     testthat,
     covr
 Imports: stats, dplyr, magrittr, randomForest, class
+Depends: 
+    R (>= 2.10)
