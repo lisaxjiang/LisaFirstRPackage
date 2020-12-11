@@ -9,6 +9,7 @@ To download the corncob package, use the code below.
 devtools::install_github("lisaxjiang/stat302project2")
 library(stat302project2)
 ```
+
 ## Use
 
 The vignette demonstrates example usage of all main functions. You can see the vignette by using the following code (note that this requires a TeX installation to view properly):
@@ -21,3 +22,7 @@ help(package = "stat302project2", help_type = "html")
 # Use this to view the vignette as an isolated HTML file
 utils::browseVignettes(package = "stat302project2")
 ```
+
+## Bug Reports / Change Requests
+
+If you encounter a bug or would like make a change request, please file it as an issue [here](https://github.com/lisaxjiang/stat302project2/issues).
