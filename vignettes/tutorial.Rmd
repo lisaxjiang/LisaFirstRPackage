@@ -1,6 +1,7 @@
 ---
 title: "Project 2: stat302project2 Tutorial"
 author: "Lisa Jiang"
+date: "12/11/2020"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{stat302project2 Tutorial}
@@ -15,9 +16,6 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(stat302project2)
-```
 
 # Part 1. R Package Development (45 points)
 
@@ -33,6 +31,7 @@ This R package should be adjusted to include functions we've written throughout 
 * `my_rf_cv`
 
 Your package should include a detailed and thorough vignette, demonstrating use of all of these functions using the `gapminder` data from the `gapminder` package.
+
 However, you must add and document the `gapminder` data to your own package and export it as the object `my_gapminder` (with proper credit in the documentation!).
 
 
@@ -59,27 +58,39 @@ library(ggplot2)
 library(kableExtra)
 library(tibble)
 data("my_gapminder")
+my_gapminder
 data("my_penguins")
-my_penguins_df <- na.omit(my_penguins)
+my_penguins <- na.omit(my_penguins)
 ```
 
 2. A tutorial for `my_t.test`
   * Use the `lifeExp` data from `my_gapminder`.
   * Demonstrate a test of the hypothesis
-  \begin{align}
-  H_0: \mu &= 60,\\
-  H_a: \mu &\neq 60.
-  \end{align}
+
+$$
+\begin{align}
+H_0: \mu &= 60,\\
+H_a: \mu &\neq 60.
+\end{align}
+$$
+  
   * Demonstrate a test of the hypothesis
-  \begin{align}
-  H_0: \mu &= 60,\\
-  H_a: \mu &< 60.
-  \end{align}
+
+$$
+\begin{align}
+H_0: \mu &= 60,\\
+H_a: \mu &< 60.
+\end{align}
+$$
+
   *  Demonstrate a test of the hypothesis
+
+$$
   \begin{align}
   H_0: \mu &= 60,\\
   H_a: \mu &> 60.
   \end{align}
+$$
   * For each of the tests above, carefully interpret the results using a p-value cut-off of $\alpha = 0.05$.
   
 3. A tutorial for `my_lm`
