@@ -12,7 +12,7 @@
 #'   misclassification error.
 #'
 #' @examples
-#' my_knn_cv(penguins, my_penguins$species, 5, 5)
+#' my_knn_cv(penguins, my_penguins$species, 1, 5)
 #' my_knn_cv(penguins, my_penguins$species, 10, 5)
 #'
 #' @export
