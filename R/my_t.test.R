@@ -28,9 +28,11 @@ my_t.test <- function(x, alternative, mu) {
          \"two.sided\"")
   }
 
-  # calculate the mean, standard deviation, and sample size of x
+  # calculate the mean of x
   x_mean <- mean(x)
+  # calcualte the standard deviation of x
   x_sd <- sd(x)
+  # calculate the sample size of x
   x_size <- length(x)
 
   # get the test statistic and degree of freedom of one sample t-test
@@ -43,6 +45,7 @@ my_t.test <- function(x, alternative, mu) {
   } else if(alternative == "greater") {
     p_val <- pt(test_stat, df, lower.tail = FALSE)
   } else if(alternative == "two.sided") {
+    # evaluate whether test statistic is negative, then calculate p-value
     if(test_stat < 0) {
       p_val <- 2 * pt(test_stat, df, lower.tail = TRUE)
     } else {
