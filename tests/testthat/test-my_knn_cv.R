@@ -1,5 +1,5 @@
 #within test-my_knn_cv.R
-penguins <- my_penguins[,3:6]
+penguins <- na.omit(my_penguins[,3:6])
 test_that("my_knn_cv works", {
   expect_is(my_knn_cv(penguins, my_penguins$species, 5, 1), "list")
 })
