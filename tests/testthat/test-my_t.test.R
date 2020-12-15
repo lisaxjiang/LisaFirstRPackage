@@ -12,13 +12,13 @@ test_that("my_t.test alternative is two.sided properly", {
 })
 
 test_that("Data input throws error", {
-  expect_error(my_t.test("data", "less", 50), "list")
+  expect_error(my_t.test("data", "less", 50))
 })
 
 test_that("String input throws error", {
-  expect_error(my_t.test(my_gapminder[[4]], 1, 50), "list")
+  expect_error(my_t.test(my_gapminder[[4]], 1, 50))
 })
 
 test_that("Numeric input throws error", {
-  expect_error(my_t.test(my_gapminder[[4]], "less", "mu"), "list")
+  expect_error(my_t.test(my_gapminder[[4]], "less", "mu"))
 })
