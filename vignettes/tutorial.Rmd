@@ -47,7 +47,7 @@ devtools::install_github("lisaxjiang/stat302project2")
 ```
 
 Install packages and data:
-```{r setup}
+```{r setup, results='hide'}
 require(stat302project2)
 library(stats)
 library(dplyr, warn.conflicts = FALSE)
@@ -66,48 +66,42 @@ my_penguins <- na.omit(my_penguins)
 2. A tutorial for `my_t.test`
   * Use the `lifeExp` data from `my_gapminder`.
   * Demonstrate a test of the hypothesis
-
-$$
-\begin{align}
-H_0: \mu &= 60,\\
-H_a: \mu &\neq 60.
-\end{align}
-$$
-```{r}
-my_t.test(my_gapminder[[4]], "two.sided", 60)
-```
-
-The p-value is over 0.5, so we do not have sufficient evidence that life expectancy equals 60.
-
+  \begin{align}
+  H_0: \mu &= 60,\\
+  H_a: \mu &\neq 60.
+  \end{align}
   * Demonstrate a test of the hypothesis
-
-$$
-\begin{align}
-H_0: \mu &= 60,\\
-H_a: \mu &< 60.
-\end{align}
-$$
-```{r}
-my_t.test(my_gapminder[[4]], "less", 60)
-```
-
-The p-value is under 0.5, so we have sufficient evidence that life expectancy is less than 60.
-
+  \begin{align}
+  H_0: \mu &= 60,\\
+  H_a: \mu &< 60.
+  \end{align}
   *  Demonstrate a test of the hypothesis
-
-$$
   \begin{align}
   H_0: \mu &= 60,\\
   H_a: \mu &> 60.
   \end{align}
-$$
+  * For each of the tests above, carefully interpret the results using a p-value cut-off of $\alpha = 0.05$.
 ```{r}
-my_t.test(my_gapminder[[4]], "greater", 60)
+two_sided_p <- my_t.test(my_gapminder[[4]], "two.sided", 60)$p_value
+left_sided_p <- my_t.test(my_gapminder[[4]], "less", 60)$p_value
+right_sided_p <- my_t.test(my_gapminder[[4]], "greater", 60)$p_value
+two_sided_p
+left_sided_p
+right_sided_p
 ```
 
-The p-value is over 0.5, so we do not have sufficient evidence that life expectancy is greater than 60.
+Test 1:
 
-  * For each of the tests above, carefully interpret the results using a p-value cut-off of $\alpha = 0.05$.
+Since the p-value is over $\alpha=0.05$, we failed to reject the null hypothesis. Therefore, there isn't sufficient evidence that the population mean is not 60 years.
+
+Test 2:
+
+Since the p-value is under $\alpha=0.05$, we succeeded in rejecting the null hypothesis. Therefore, there is sufficient evidence that the populaion mean is less than 60 years.
+
+Test 3:
+
+Since the p-value is over $\alpha=0.05$, we failed to reject the null hypothesis. Therefore, there isn't sufficient evidence that the population mean is greater than 60 years.
+
   
 3. A tutorial for `my_lm`
   * Demonstrate a regression using `lifeExp` as your response variable and `gdpPercap` and `continent` as explanatory variables.
@@ -116,7 +110,24 @@ The p-value is over 0.5, so we do not have sufficient evidence that life expecta
   * Carefully interpret the results the `gdpPercap` hypothesis test using a p-value cut-off of $\alpha = 0.05$.
   * Use `ggplot2` to plot the Actual vs. Fitted values.
   * Interpret the Actual vs. Fitted plot and make a statement on what it tells you about model fit.
-  
+```{r}
+# extract life expectancy column from my_gapminder 
+lifeExp <- my_gapminder[[4]]
+# extract gdp_Percap column from my_gapminder 
+gdp_Percap <- my_gapminder[[6]]
+# extract the continent column from my_gapminder 
+continent <- my_gapminder[[2]]
+
+# demonstrate a regression using `lifeExp` as the response variable
+#lm <- my_lm(life_Exp ~ gdp_Percap + continent, data = my_gapminder)
+#summary(lm)
+# get the intercept of the model
+#my_coef <- test[, 1]
+# create matrix and calculate fitted values
+#my_matrix <- model.matrix(life_Exp ~ gdp_Percap + continent, 
+#                          data = my_gapminder)
+#y_hat <- my_matrix %*% as.matrix(my_coef)
+```
 
   
 4. A tutorial for `my_knn_cv` using `my_penguins`.
