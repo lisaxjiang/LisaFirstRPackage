@@ -24,8 +24,9 @@ misclassification error.
 This function performs a k-nearest neighbors cross-validation.
 }
 \examples{
-my_knn_cv(penguins, my_penguins$species, 5, 1)
-my_knn_cv(penguins, my_penguins$species, 5, 10)
+data <- my_penguins[,3:6]
+my_knn_cv(data, my_penguins$species, 5, 1)
+my_knn_cv(data, my_penguins$species, 5, 10)
 
 }
 \keyword{prediction}
