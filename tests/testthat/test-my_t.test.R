@@ -11,10 +11,6 @@ test_that("my_t.test alternative is two.sided properly", {
   expect_is(my_t.test(my_gapminder[[4]], "two.sided", 50), "list")
 })
 
-test_that("Data input throws error", {
-  expect_error(my_t.test("data", "less", 50))
-})
-
 test_that("String input throws error", {
   expect_error(my_t.test(my_gapminder[[4]], 1, 50))
 })
