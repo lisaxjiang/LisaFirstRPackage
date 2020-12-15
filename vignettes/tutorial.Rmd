@@ -188,11 +188,21 @@ for (i in 1 : 10) {
 # create data frame to hold columns from my matrix
 my_data <- data.frame("k_nn" = my_matrix[, 1],
                       "training_misclassification_rate" = my_matrix[, 2],
-                      "cv_misclassification_error" = my_matrix[, 3])
+                      "cv_misclassification_rate" = my_matrix[, 3])
 my_data
 ```
 
+Algorithm of cross validation:
 
+In a k-fold cross validation, the data is first shuffled and split randomly into k parts. In each iteration, one of the k parts is choosen to be the testing data, while all other parts are used as training data. The training data is used to model a relationship between the variables data frame and the true values. Then, a prediction of a set of test values is made using the variables data frame in the choosen part. The predictions are compared with the true values of the test set and an evaluation score is recorded.
+
+Why it is useful:
+
+This method is useful because all parts among the k parts is used once as the prediction set. We can use this method to find a good balance between bias and variance.
+
+Table of output interpretation:
+
+Based on the training misclassification rate and cv misclassification rates in the table shown above, I would choose the 4th iteration where $k_nn=4$ in modeling the data of penguin because it has an average training misclassification rate with the lowest cv misclassification rate. The sum of the two is lowest at $k_nn=4$, therefore I think it has a decent tradeoff between bias and variance.
 
 5. A tutorial for `my_rf_cv`
   * Predict `body_mass_g` using covariates `bill_length_mm`, `bill_depth_mm`, and `flipper_length_mm`. 
