@@ -8,7 +8,7 @@
 #' @keywords prediction
 #'
 #' @return A list containing (1) a set of the predicted variable for all the
-#'   observatoin and (2) a numeric value representing the cross-validation
+#'   observatoins and (2) a numeric value representing the cross-validation
 #'   misclassification error.
 #'
 #' @examples
