@@ -166,7 +166,12 @@ We can notice that Europe and Oceania has the highest overall life expectancy. A
   * State which model you would choose based on the training misclassification rates and which model you would choose based on the CV misclassification rates.
   * Discuss which model you would choose in practice and why. 
   * Your explanation(s) should include a general description of what the process of cross-validation is doing and why it is useful.
-  
+```{r}
+
+```
+
+
+
 5. A tutorial for `my_rf_cv`
   * Predict `body_mass_g` using covariates `bill_length_mm`, `bill_depth_mm`, and `flipper_length_mm`. 
   * Iterate through `k` in  `c(2, 5, 10)`:
