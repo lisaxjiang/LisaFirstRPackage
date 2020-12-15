@@ -24,13 +24,13 @@ my_knn_cv <- function(train, cl, k_cv, k_nn) {
                    test = train,
                    k = k_nn)
 
-  # split data in k_cv parts randomly
+  # split data in k_nn parts randomly
   inds <- sample(rep(1:k_cv, length = length(cl)))
 
   # create empty list to store cv misclassification errors
   cross_val <- rep(NA, k_cv)
 
-  # loop through all folds
+  # loop through all
   for(i in 1:k_cv) {
     # get train and test data in train
     data_train <- train[inds != i,]
@@ -43,14 +43,15 @@ my_knn_cv <- function(train, cl, k_cv, k_nn) {
                     cl = cl_train,
                     test = data_test,
                     k = k_nn)
-    # compare outputs with cl_test and calculate cv misclassification errors
+    # compare outputs with cl_test and calculate cv misclassification error
     cross_val[i] <- sum(fold_knn == cl_test) / length(cl_test)
   }
-  # calculate the average misclassification rate
+  # calculate the average cv misclassification error
   cv_error <- mean(cross_val)
 
-  # misclassification rate
+  # create a list of predicted values and the average cv misclassification rate
   my_list <- list("class" = predicted,
                  "cv_error" = cv_error)
+  # create the list
   return(my_list)
 }

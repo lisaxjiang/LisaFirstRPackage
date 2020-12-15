@@ -61,6 +61,10 @@ data("my_gapminder")
 my_gapminder
 data("my_penguins")
 my_penguins <- na.omit(my_penguins)
+penguins <- data.frame(my_penguins[[3]],
+                       my_penguins[[4]],
+                       my_penguins[[5]],
+                       my_penguins[[6]])
 ```
 
 2. A tutorial for `my_t.test`
