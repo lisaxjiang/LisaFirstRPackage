@@ -17,7 +17,7 @@
 #' my_knn_cv(data, my_penguins$species, 5, 10)
 #'
 #' @export
-#' @import class dplyr magrittr randomForest
+#' @import class magrittr randomForest
 my_knn_cv <- function(train, cl, k_cv, k_nn) {
   # find predicted values using full data
   predicted <- knn(train = train,
