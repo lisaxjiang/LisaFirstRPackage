@@ -119,16 +119,44 @@ gdp_Percap <- my_gapminder[[6]]
 continent <- my_gapminder[[2]]
 
 # demonstrate a regression using `lifeExp` as the response variable
-#lm <- my_lm(life_Exp ~ gdp_Percap + continent, data = my_gapminder)
-#summary(lm)
-# get the intercept of the model
-#my_coef <- test[, 1]
-# create matrix and calculate fitted values
-#my_matrix <- model.matrix(life_Exp ~ gdp_Percap + continent, 
-#                          data = my_gapminder)
-#y_hat <- my_matrix %*% as.matrix(my_coef)
+lm <- my_lm(lifeExp ~ gdp_Percap + continent, data = my_gapminder)
+summary(lm)
 ```
 
+Hypothesis test:
+  \begin{align}
+  H_0: \beta &= 0,\\
+  H_a: \beta &\neq 0.
+  \end{align}
+
+Interpretation of the hypothesis test:
+
+The p-value for all factors is $0.001889$, which is smaller than $\alpha=0.05$. So there is sufficient evidence to reject the null hypothesis and conclude that the coefficient of this linear regression model is not zero.
+
+```{r}
+# get the intercept of the model
+my_coef <- lm[, 1]
+# create matrix and calculate fitted values
+my_matrix <- model.matrix(lifeExp ~ gdp_Percap + continent, 
+                          data = my_gapminder)
+y_hat <- my_matrix %*% as.matrix(my_coef)
+# create data frame for the dot plot
+my_data <- data.frame("Actual" = my_gapminder$lifeExp,
+                      "Fitted" = y_hat,
+                      "Continent" = my_gapminder$continent)
+# create the actual vs. fitted values plot
+my_plot <- ggplot(my_data, aes(x = Actual, y = Fitted, color = Continent)) + 
+  geom_point() + 
+  geom_abline(slope = 1, intercept = 0, col = "red") + 
+  labs(title = "Life Expectancy Actual v.s. Fitted Plot") + 
+  theme_bw(base_size = 12) + 
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 12))
+my_plot
+```
+
+Actual vs. Fitted plot interpretation:
+
+We can notice that Europe and Oceania has the highest overall life expectancy. Americas and Asia are just below them, while Africa tends to have the lowest life expectancy. Furthurmore, the red line on the plot is at $y=x$, and we can clearly see that the blue and purple dots follow the line closer. This suggests that if we are using life expectancy as our response variable with GDP per capita and continent as our explanatary variables, the prediction model is more useful in predicting life expectancy in Europe and Oceania.
   
 4. A tutorial for `my_knn_cv` using `my_penguins`.
   * Predict output class `species` using covariates `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, and `body_mass_g`. 
