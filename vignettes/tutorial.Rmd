@@ -42,7 +42,7 @@ Specifically, the vignette should have 5 parts:
   * The install instructions should be demonstrated with code that is not evaluated (`eval = FALSE`).
   * Make sure to include a call to `library()` for your package.
 
-```{r install, eval = FALSE}
+```{r install, eval = FALSE, results='hide'}
 devtools::install_github("lisaxjiang/stat302project2")
 ```
 
@@ -73,7 +73,12 @@ H_0: \mu &= 60,\\
 H_a: \mu &\neq 60.
 \end{align}
 $$
-  
+```{r}
+my_t.test(my_gapminder[[4]], "two.sided", 60)
+```
+
+The p-value is over 0.5, so we do not have sufficient evidence that life expectancy equals 60.
+
   * Demonstrate a test of the hypothesis
 
 $$
@@ -82,6 +87,11 @@ H_0: \mu &= 60,\\
 H_a: \mu &< 60.
 \end{align}
 $$
+```{r}
+my_t.test(my_gapminder[[4]], "less", 60)
+```
+
+The p-value is under 0.5, so we have sufficient evidence that life expectancy is less than 60.
 
   *  Demonstrate a test of the hypothesis
 
@@ -91,6 +101,12 @@ $$
   H_a: \mu &> 60.
   \end{align}
 $$
+```{r}
+my_t.test(my_gapminder[[4]], "greater", 60)
+```
+
+The p-value is over 0.5, so we do not have sufficient evidence that life expectancy is greater than 60.
+
   * For each of the tests above, carefully interpret the results using a p-value cut-off of $\alpha = 0.05$.
   
 3. A tutorial for `my_lm`
@@ -100,6 +116,8 @@ $$
   * Carefully interpret the results the `gdpPercap` hypothesis test using a p-value cut-off of $\alpha = 0.05$.
   * Use `ggplot2` to plot the Actual vs. Fitted values.
   * Interpret the Actual vs. Fitted plot and make a statement on what it tells you about model fit.
+  
+
   
 4. A tutorial for `my_knn_cv` using `my_penguins`.
   * Predict output class `species` using covariates `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, and `body_mass_g`. 
