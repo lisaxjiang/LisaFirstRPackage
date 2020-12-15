@@ -202,7 +202,7 @@ This method is useful because all parts among the k parts is used once as the pr
 
 Table of output interpretation:
 
-Based on the training misclassification rate and cv misclassification rates in the table shown above, I would choose the 4th iteration where $k_nn=4$ in modeling the data of penguin because it has an average training misclassification rate with the lowest cv misclassification rate. The sum of the two is lowest at $k_nn=4$, therefore I think it has a decent tradeoff between bias and variance.
+Based on the training misclassification rate and cv misclassification rates in the table shown above, I would choose the 4th iteration where $k_nn=4$ in modeling the data of penguin because it has comparatively low rates in both the training misclassification rate and the lowest cv misclassification rate. The sum of the two is lowest at $k_nn=4$, therefore I think it has a decent tradeoff between bias and variance.
 
 5. A tutorial for `my_rf_cv`
   * Predict `body_mass_g` using covariates `bill_length_mm`, `bill_depth_mm`, and `flipper_length_mm`. 
