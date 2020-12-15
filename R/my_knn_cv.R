@@ -12,8 +12,8 @@
 #'   misclassification error.
 #'
 #' @examples
-#' my_knn_cv(my_penguins, my_gapminder$species, 5, 5)
-#' my_knn_cv(my_penguins, my_gapminder$species, 10, 5)
+#' my_knn_cv(penguins, my_penguins$species, 5, 5)
+#' my_knn_cv(penguins, my_penguins$species, 10, 5)
 #'
 #' @export
 #' @import class magrittr randomForest
