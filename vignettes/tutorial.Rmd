@@ -61,10 +61,6 @@ data("my_gapminder")
 my_gapminder
 data("my_penguins")
 my_penguins <- na.omit(my_penguins)
-penguins <- data.frame(my_penguins[[3]],
-                       my_penguins[[4]],
-                       my_penguins[[5]],
-                       my_penguins[[6]])
 ```
 
 2. A tutorial for `my_t.test`
@@ -171,7 +167,29 @@ We can notice that Europe and Oceania has the highest overall life expectancy. A
   * Discuss which model you would choose in practice and why. 
   * Your explanation(s) should include a general description of what the process of cross-validation is doing and why it is useful.
 ```{r}
-
+# create an empty matrix to record indexes and outputs
+my_matrix <- matrix(NA, nrow = 10, ncol = 3)
+# run through the k_nn values
+for (i in 1 : 10) {
+  # the first row as the value of k_nn
+  my_matrix[i, 1] <- i
+  # get output list
+  my_output <- my_knn_cv(train = my_penguins[,3:6],
+                         cl = my_penguins$species,
+                         k_cv = 5,
+                         k_nn = i)
+  # record predictions
+  prediction <- my_output$class
+  # get the training misclassification rate
+  my_matrix[i, 2] <- sum(prediction != my_penguins$species) / length(prediction)
+  # record cv misclassification rate
+  my_matrix[i, 3] <- my_output$cv_error
+}
+# create data frame to hold columns from my matrix
+my_data <- data.frame("k_nn" = my_matrix[, 1],
+                      "training_misclassification_rate" = my_matrix[, 2],
+                      "cv_misclassification_error" = my_matrix[, 3])
+my_data
 ```
 
 
