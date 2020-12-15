@@ -1,4 +1,6 @@
 #within test-my_knn_cv.R
+my_penguins <- drop_na(my_penguins)
+
 test_that("my_knn_cv works", {
   expect_is(my_knn_cv(my_penguins[,3:6], penguins$species, 5, 1), "list")
 })
