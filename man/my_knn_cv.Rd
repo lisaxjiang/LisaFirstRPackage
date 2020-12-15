@@ -4,16 +4,16 @@
 \alias{my_knn_cv}
 \title{k-Nearest Neighbors Cross-Validation function}
 \usage{
-my_knn_cv(train, cl, k_nn, k_cv)
+my_knn_cv(train, cl, k_cv, k_nn)
 }
 \arguments{
 \item{train}{A given data frame.}
 
-\item{cl}{True value of the training data \code{train}.}
-
-\item{k_nn}{An integer indicating the number of neighbors.}
+\item{cl}{True values of the training data \code{train}.}
 
 \item{k_cv}{An integer indicating the number of folds.}
+
+\item{k_nn}{An integer indicating the number of neighbors.}
 }
 \value{
 A list containing (1) a set of the predicted variable for all the
@@ -24,8 +24,8 @@ misclassification error.
 This function performs a k-nearest neighbors cross-validation.
 }
 \examples{
-my_knn_cv(penguins, my_penguins$species, 1, 5)
-my_knn_cv(penguins, my_penguins$species, 10, 5)
+my_knn_cv(penguins, my_penguins$species, 5, 1)
+my_knn_cv(penguins, my_penguins$species, 5, 10)
 
 }
 \keyword{prediction}
