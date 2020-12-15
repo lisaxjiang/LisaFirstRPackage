@@ -16,9 +16,9 @@ test_that("non-list cl input throws error", {
 })
 
 test_that("non-valid k_nn throws error", {
-  expect_is(my_knn_cv(my_penguins[,3:6], penguins$species, 5, 0))
+  expect_error(my_knn_cv(my_penguins[,3:6], penguins$species, 5, 0))
 })
 
 test_that("non-valid k_cv throws error", {
-  expect_is(my_knn_cv(my_penguins[,3:6], penguins$species, 0, 1))
+  expect_error(my_knn_cv(my_penguins[,3:6], penguins$species, 0, 1))
 })
