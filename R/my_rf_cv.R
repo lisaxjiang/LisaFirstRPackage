@@ -40,7 +40,7 @@ my_rf_cv <- function(k) {
                                            flipper_length_mm,
                              data = data_train)
     # use model to generate a list of predictions
-    predictions <- predict(my_model, my_penguins[,6])
+    predictions <- predict(my_model, my_penguins)
     # calculate the mean squared error
     mse_val[i] <- mean((predictions - my_penguins$body_mass_g)^2)
   }
