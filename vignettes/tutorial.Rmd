@@ -214,7 +214,6 @@ Based on the training misclassification rate and cv misclassification rates in t
   * Discuss the results you observe in the boxplots and table. Compare the means and standard deviations of the the different values of $k$ and comment on why you think this is the case.
   
 ```{r}
-mse_test <- my_rf_cv(2)
 # create an empty matrix to hold MSE values
 my_matrix <- matrix(NA, nrow = 30, ncol = 3)
 # use for loop to run 30 iterations

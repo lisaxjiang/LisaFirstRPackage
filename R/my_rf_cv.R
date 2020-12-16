@@ -28,7 +28,7 @@ my_rf_cv <- function(k) {
   fold <- sample(rep(1:k, length = n))
 
   # # create empty list to store cv estimated mean sqaured error
-  mse_val <- rep(NA, n)
+  mse_val <- rep(NA, k)
 
   # loop through all folds
   for (i in 1:k) {
@@ -40,7 +40,7 @@ my_rf_cv <- function(k) {
     cl_test <- my_penguins$body_mass_g[fold == i]
     # build model using random forest
     fit_rf <- randomForest(body_mass_g ~ bill_length_mm + bill_depth_mm +
-                                           flipper_length_mm,
+                                         flipper_length_mm,
                            data = data_train)
     # use model to generate a list of predictions
     predictions <- predict(fit_rf, data_test)
