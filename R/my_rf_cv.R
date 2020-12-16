@@ -36,12 +36,12 @@ my_rf_cv <- function(k) {
     data_train <- my_penguins[fold != i,]
     data_test <-  my_penguins[fold == i,]
     # train models
-    cl_train <- my_penguins$body_mass_g[fold != i,]
-    cl_test <- my_penguins$body_mass_g[fold == i,]
+    cl_train <- my_penguins$body_mass_g[fold != i]
+    cl_test <- my_penguins$body_mass_g[fold == i]
     # build model using random forest
-    fit_rf <- train(body_mass_g ~ bill_length_mm + bill_depth_mm +
+    fit_rf <- randomForest(body_mass_g ~ bill_length_mm + bill_depth_mm +
                                            flipper_length_mm,
-                             data = data_train)
+                           data = data_train)
     # use model to generate a list of predictions
     predictions <- predict(fit_rf, data_test)
     # calculate the mean squared error
