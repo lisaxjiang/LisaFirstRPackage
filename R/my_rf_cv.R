@@ -2,8 +2,6 @@
 #'
 #' This function performs a \code{k} fold random forest cross-validation
 #'   on the penguin data.
-#' @param train A given data frame.
-#' @param cl True values of the training data \code{train}.
 #' @param k A numeric indicating the number of folds.
 #' @keywords prediction
 #'

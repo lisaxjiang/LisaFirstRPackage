@@ -8,10 +8,6 @@ my_rf_cv(k)
 }
 \arguments{
 \item{k}{A numeric indicating the number of folds.}
-
-\item{train}{A given data frame.}
-
-\item{cl}{True values of the training data \code{train}.}
 }
 \value{
 A numeric indicating the mean square error.
