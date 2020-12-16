@@ -21,7 +21,6 @@ This function performs a \code{k} fold random forest cross-validation
 on the penguin data.
 }
 \examples{
-my_penguins <- na.omit(my_penguins)
 my_rf_cv(2)
 my_rf_cv(5)
 my_rf_cv(10)

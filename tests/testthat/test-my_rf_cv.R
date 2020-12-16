@@ -1,6 +1,4 @@
 #within test-my_rf_cv.R
-my_penguins <- na.omit(my_penguins)
-
 test_that("my_rf_cv works", {
   expect_is(my_rf_cv(2), "numeric")
 })
