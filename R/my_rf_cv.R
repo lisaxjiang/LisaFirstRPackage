@@ -38,7 +38,7 @@ my_rf_cv <- function(k) {
     # build model using random forest
     my_model <- randomForest(body_mass_g ~ bill_length_mm + bill_depth_mm +
                                            flipper_length_mm,
-                             data = data_train, ntree = 50)
+                             data = data_train)
     # use model to generate a list of predictions
     predictions <- predict(my_model)
     # calculate the mean squared error
