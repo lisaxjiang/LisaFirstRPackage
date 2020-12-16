@@ -16,9 +16,7 @@
 #' @import class magrittr randomForest
 my_rf_cv <- function(trian, cl, k) {
   # stop the program if there are any invalid inputs
-  if(length(train) != length(cl)) {
-    stop("length of \"train\" does not match length of \"cl\"")
-  } else if(k < 1) {
+  if(k < 1) {
     stop("\"k\" must be larger than zero")
   }
 
