@@ -31,7 +31,7 @@ my_rf_cv <- function(k) {
   # set up variable data
   train <- my_penguins[,3:5]
   # set up true values
-  cl <- my_penguins$body_mass_g
+  cl <- my_penguins[,6]
 
   # # create empty list to store cv estimated mean sqaured error
   mse_val <- rep(NA, k)
