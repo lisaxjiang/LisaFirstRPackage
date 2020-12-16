@@ -29,9 +29,9 @@ my_rf_cv <- function(k) {
   # omit NA's in my_penguins
   my_penguins <- na.omit(my_penguins)
   # set up variable data
-  train <- my_penguins[,3:5]
+  #train <- my_penguins[,3:5]
   # set up true values
-  cl <- my_penguins[,6]
+  #cl <- my_penguins[,6]
 
   # # create empty list to store cv estimated mean sqaured error
   mse_val <- rep(NA, k)
@@ -39,11 +39,11 @@ my_rf_cv <- function(k) {
   # loop through all folds
   for (i in 1:k) {
     # get train and test data in train variables
-    data_train <- train[fold != i,]
-    data_test <-  train[fold == i,]
+    data_train <- my_penguins[fold != i,3:5]
+    data_test <-  my_penguins[fold == i,3:5]
     # train models
-    cl_train <- cl[fold != i]
-    cl_test <- cl[fold == i]
+    cl_train <- my_penguins[fold != i,6]
+    cl_test <- my_penguins[fold == i,6]
     # build model using random forest
     my_model <- randomForest(cl ~ train, data = data_train, ntree = 200)
     # use model to generate a list of predictions

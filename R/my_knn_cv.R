@@ -21,10 +21,10 @@
 #' @import class magrittr randomForest
 my_knn_cv <- function(train, cl, k_cv, k_nn) {
   # stop the program if there are any invalid inputs
-  if(k_cv < 1) {
-    stop("\"k_cv\" must be larger than zero")
-  } else if(k_nn < 1) {
-    stop("\"k_nn\" must be larger than zero")
+  if(!is.numeric(k_cv) || k_cv < 1) {
+    stop("\"k_cv\" must be an integer larger than zero")
+  } else if(!is.numeric(k_nn) || k_nn < 1) {
+    stop("\"k_nn\" must be an integer larger than zero")
   }
 
   # find predicted values using full data

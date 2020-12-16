@@ -15,3 +15,11 @@ test_that("non-list train input throws error", {
 test_that("non-list cl input throws error", {
   expect_error(my_knn_cv(my_penguins[,3:6], "spring", 5, 1))
 })
+
+test_that("non-numeric k_cv input throws error", {
+  expect_error(my_knn_cv(my_penguins[,3:6], my_penguins$species, "string", 1))
+})
+
+test_that("non-numeric k_nn input throws error", {
+  expect_error(my_knn_cv(my_penguins[,3:6], my_penguins$species, 5, "string"))
+})
