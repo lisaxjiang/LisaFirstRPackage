@@ -25,7 +25,7 @@ my_rf_cv <- function(k) {
   # omit NA's in my_penguins
   my_penguins <- na.omit(my_penguins)
   # generate a list of integers from 1 to k of length cl randomly
-  fold <- sample(rep(1:k, length = ncol(my_penguins)))
+  fold <- sample(rep(1:k, length = nrow(my_penguins)))
 
   # # create empty list to store cv estimated mean sqaured error
   mse_val <- rep(NA, k)
