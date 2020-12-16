@@ -20,19 +20,28 @@
 #' @export
 #' @import class magrittr randomForest
 my_knn_cv <- function(train, cl, k_cv, k_nn) {
+  # stop the program if there are any invalid inputs
+  if(length(train) != length(cl)) {
+    stop("length of \"train\" does not match length of \"cl\"")
+  } else if(k_cv < 1) {
+    stop("\"k_cv\" must be larger than zero")
+  } else if(k_nn < 1) {
+    stop("\"k_nn\" must be larger than zero")
+  }
+
   # find predicted values using full data
   predicted <- knn(train = train,
                    cl = cl,
                    test = train,
                    k = k_nn)
 
-  # split data in k_nn parts randomly
+  # generate a list of integers from 1 to k_cv of length cl randomly
   inds <- sample(rep(1:k_cv, length = length(cl)))
 
   # create empty list to store cv misclassification errors
   cross_val <- rep(NA, k_cv)
 
-  # loop through all
+  # loop through all folds
   for(i in 1:k_cv) {
     # get train and test data in train
     data_train <- train[inds != i,]
