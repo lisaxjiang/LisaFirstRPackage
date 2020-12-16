@@ -21,7 +21,11 @@ This function performs a \code{k} fold random forest cross-validation
 on the penguin data.
 }
 \examples{
-my_rf_cv(5)
+my_penguins <- na.omit(my_penguins)
+penguins <- my_penguins[,3:5]
+my_rf_cv(penguins, my_penguins$body_mass_g, 2)
+my_rf_cv(penguins, my_penguins$body_mass_g, 5)
+my_rf_cv(penguins, my_penguins$body_mass_g, 10)
 
 }
 \keyword{prediction}
