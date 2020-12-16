@@ -43,7 +43,7 @@ my_rf_cv <- function(k) {
                                            flipper_length_mm,
                              data = data_train)
     # use model to generate a list of predictions
-    predictions <- predict(my_model, data_test[,6])
+    predictions <- predict(my_model, data_test)
     # calculate the mean squared error
     mse_val[i] <- mean((predictions - cl_test)^2)
   }
