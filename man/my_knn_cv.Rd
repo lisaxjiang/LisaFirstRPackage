@@ -7,7 +7,7 @@
 my_knn_cv(train, cl, k_cv, k_nn)
 }
 \arguments{
-\item{train}{A given data frame.}
+\item{train}{A given data frame of training variables.}
 
 \item{cl}{True values of the training data \code{train}.}
 

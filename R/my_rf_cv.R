@@ -11,10 +11,9 @@
 #'
 #' @examples
 #' my_penguins <- na.omit(my_penguins)
-#' penguins <- my_penguins[,3:5]
-#' my_rf_cv(penguins, my_penguins$body_mass_g, 2)
-#' my_rf_cv(penguins, my_penguins$body_mass_g, 5)
-#' my_rf_cv(penguins, my_penguins$body_mass_g, 10)
+#' my_rf_cv(my_penguins[,3:5], my_penguins$body_mass_g, 2)
+#' my_rf_cv(my_penguins[,3:5], my_penguins$body_mass_g, 5)
+#' my_rf_cv(my_penguins[,3:5], my_penguins$body_mass_g, 10)
 #'
 #' @export
 #' @import class magrittr randomForest

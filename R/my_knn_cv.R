@@ -1,7 +1,7 @@
 #' k-Nearest Neighbors Cross-Validation function
 #'
 #' This function performs a k-nearest neighbors cross-validation.
-#' @param train A given data frame.
+#' @param train A given data frame of training variables.
 #' @param cl True values of the training data \code{train}.
 #' @param k_cv An integer indicating the number of folds.
 #' @param k_nn An integer indicating the number of neighbors.
