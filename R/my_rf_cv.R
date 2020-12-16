@@ -19,8 +19,8 @@
 #' @import class magrittr randomForest
 my_rf_cv <- function(k) {
   # stop the program if there are any invalid inputs
-  if(k < 1) {
-    stop("\"k\" must be larger than zero")
+  if(!is.numeric(k) || k < 1) {
+    stop("\"k\" must be an integer larger than zero")
   }
 
   # generate a list of integers from 1 to k of length cl randomly
