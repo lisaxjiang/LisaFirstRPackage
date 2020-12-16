@@ -213,7 +213,7 @@ Based on the training misclassification rate and cv misclassification rates in t
   * Use a table to display the average CV estimate and the standard deviation of the CV estimates across $k$. Your table should have 3 rows (one for each value of $k$) and 2 columns (one for the mean and the other for the standard deviation).
   * Discuss the results you observe in the boxplots and table. Compare the means and standard deviations of the the different values of $k$ and comment on why you think this is the case.
   
-```{r}
+```{r, eval=FALSE}
 # create an empty matrix to hold MSE values
 my_matrix <- matrix(NA, nrow = 30, ncol = 3)
 # use for loop to run 30 iterations
@@ -235,16 +235,16 @@ for(i in 1 : 30) {
   }
 }
 # create data frame to hold columns from my matrix
-my_data <- data.frame("k=2" = my_matrix[, 1],
-                      "k=5" = my_matrix[, 2],
-                      "k=10" = my_matrix[, 3])
+#my_data <- data.frame("k=2" = my_matrix[, 1],
+#                      "k=5" = my_matrix[, 2],
+#                      "k=10" = my_matrix[, 3])
 
 # create 3 boxplots with a boxplot associated with each value of k
-my_boxplot <- ggplot(my_data, aes(x = Actual, y = Fitted, color = Continent)) + 
-  geom_boxplot() + 
-  labs(title = "") + 
+#my_boxplot <- ggplot(my_data, aes(x = Actual, y = Fitted, color = Continent)) + 
+#  geom_boxplot() + 
+#  labs(title = "") + 
   #theme_bw(base_size = 12) + 
-  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 12))
+#  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 12))
 ```
   
 ### Details
