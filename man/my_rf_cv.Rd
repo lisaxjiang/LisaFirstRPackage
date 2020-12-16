@@ -4,14 +4,14 @@
 \alias{my_rf_cv}
 \title{Random Forest Cross-Validation function}
 \usage{
-my_rf_cv(trian, cl, k)
+my_rf_cv(k)
 }
 \arguments{
-\item{cl}{True values of the training data \code{train}.}
-
 \item{k}{A numeric indicating the number of folds.}
 
 \item{train}{A given data frame.}
+
+\item{cl}{True values of the training data \code{train}.}
 }
 \value{
 A numeric indicating the mean square error.
@@ -22,9 +22,9 @@ on the penguin data.
 }
 \examples{
 my_penguins <- na.omit(my_penguins)
-my_rf_cv(my_penguins[,3:5], my_penguins$body_mass_g, 2)
-my_rf_cv(my_penguins[,3:5], my_penguins$body_mass_g, 5)
-my_rf_cv(my_penguins[,3:5], my_penguins$body_mass_g, 10)
+my_rf_cv(2)
+my_rf_cv(5)
+my_rf_cv(10)
 
 }
 \keyword{prediction}

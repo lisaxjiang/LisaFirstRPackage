@@ -11,13 +11,13 @@
 #'
 #' @examples
 #' my_penguins <- na.omit(my_penguins)
-#' my_rf_cv(my_penguins[,3:5], my_penguins$body_mass_g, 2)
-#' my_rf_cv(my_penguins[,3:5], my_penguins$body_mass_g, 5)
-#' my_rf_cv(my_penguins[,3:5], my_penguins$body_mass_g, 10)
+#' my_rf_cv(2)
+#' my_rf_cv(5)
+#' my_rf_cv(10)
 #'
 #' @export
 #' @import class magrittr randomForest
-my_rf_cv <- function(trian, cl, k) {
+my_rf_cv <- function(k) {
   # stop the program if there are any invalid inputs
   if(k < 1) {
     stop("\"k\" must be larger than zero")
@@ -25,6 +25,13 @@ my_rf_cv <- function(trian, cl, k) {
 
   # generate a list of integers from 1 to k of length cl randomly
   fold <- sample(rep(1:k, length = length(cl)))
+
+  # omit NA's in my_penguins
+  my_penguins <- na.omit(my_penguins)
+  # set up variable data
+  train <- my_penguins[,3:5]
+  # set up true values
+  cl <- my_penguins$body_mass_g
 
   # # create empty list to store cv estimated mean sqaured error
   mse_val <- rep(NA, k)

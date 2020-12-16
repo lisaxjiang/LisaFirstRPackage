@@ -213,6 +213,10 @@ Based on the training misclassification rate and cv misclassification rates in t
   * Use a table to display the average CV estimate and the standard deviation of the CV estimates across $k$. Your table should have 3 rows (one for each value of $k$) and 2 columns (one for the mean and the other for the standard deviation).
   * Discuss the results you observe in the boxplots and table. Compare the means and standard deviations of the the different values of $k$ and comment on why you think this is the case.
   
+```{r}
+#my_rf_cv(train = my_penguins[,3:5], cl = my_penguins$body_mass_g, 2)
+```
+  
 ### Details
 
 * Your package must be hosted on GitHub as a public repository. You are free to make the repository private after the course concludes.
