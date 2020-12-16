@@ -22,28 +22,27 @@ my_rf_cv <- function(k) {
 
   # omit NA's in my_penguins
   my_penguins <- na.omit(my_penguins)
+  # get row number of data
+  n <- nrow(my_penguins)
   # generate a list of integers from 1 to k of length cl randomly
-  fold <- sample(rep(1:k, length = nrow(my_penguins)))
+  fold <- sample(rep(1:k, length = n))
 
   # # create empty list to store cv estimated mean sqaured error
-  mse_val <- rep(NA, k)
+  mse_val <- rep(NA, n)
 
   # loop through all folds
   for (i in 1:k) {
     # get train and test data in train variables
     data_train <- my_penguins[fold != i,]
     data_test <-  my_penguins[fold == i,]
-    # train models
-    cl_train <- my_penguins$body_mass_g[fold != i]
-    cl_test <- my_penguins$body_mass_g[fold == i]
     # build model using random forest
     my_model <- randomForest(body_mass_g ~ bill_length_mm + bill_depth_mm +
                                            flipper_length_mm,
-                             data = data_train, ntree = 200)
+                             data = data_train, ntree = 50)
     # use model to generate a list of predictions
-    predictions <- predict(my_model, data_test[, -1])
+    predictions <- predict(my_model, data_test[, 6])
     # calculate the mean squared error
-    mse_val[i] <- mean((predictions - cl_test)^2)
+    mse_val[i] <- mean((predictions - my_penguins$body_mass_g)^2)
   }
   # find average MSE
   MSE <- mean(mse_val)

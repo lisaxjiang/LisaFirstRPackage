@@ -214,7 +214,37 @@ Based on the training misclassification rate and cv misclassification rates in t
   * Discuss the results you observe in the boxplots and table. Compare the means and standard deviations of the the different values of $k$ and comment on why you think this is the case.
   
 ```{r}
-#my_rf_cv(train = my_penguins[,3:5], cl = my_penguins$body_mass_g, 2)
+# create an empty matrix to hold MSE values
+my_matrix <- matrix(NA, nrow = 30, ncol = 3)
+# use for loop to run 30 iterations
+for(i in 1 : 30) {
+  # use another for loop to iterate through three values of k
+  for(j in 1 : 3) {
+    # run function using k=2
+    mse2 <- my_rf_cv(2)
+    # store mse outcome in my_matrix
+    my_matrix[i, 1] <- mse2
+    # run function using k=5
+    mse5 <- my_rf_cv(5)
+    # store mse outcome in my_matrix
+    my_matrix[i, 2] <- mse5
+    # run function using k=2
+    mse10 <- my_rf_cv(10)
+    # store mse outcome in my_matrix
+    my_matrix[i, 3] <- mse10
+  }
+}
+# create data frame to hold columns from my matrix
+my_data <- data.frame("k=2" = my_matrix[, 1],
+                      "k=5" = my_matrix[, 2],
+                      "k=10" = my_matrix[, 3])
+
+# create 3 boxplots with a boxplot associated with each value of k
+my_boxplot <- ggplot(my_data, aes(x = Actual, y = Fitted, color = Continent)) + 
+  geom_boxplot() + 
+  labs(title = "") + 
+  #theme_bw(base_size = 12) + 
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 12))
 ```
   
 ### Details
