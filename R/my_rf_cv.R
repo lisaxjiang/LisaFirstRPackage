@@ -22,15 +22,10 @@ my_rf_cv <- function(k) {
     stop("\"k\" must be an integer larger than zero")
   }
 
-  # generate a list of integers from 1 to k of length cl randomly
-  fold <- sample(rep(1:k, length = length(cl)))
-
   # omit NA's in my_penguins
   my_penguins <- na.omit(my_penguins)
-  # set up variable data
-  #train <- my_penguins[,3:5]
-  # set up true values
-  #cl <- my_penguins[,6]
+  # generate a list of integers from 1 to k of length cl randomly
+  fold <- sample(rep(1:k, length = length(my_penguins)))
 
   # # create empty list to store cv estimated mean sqaured error
   mse_val <- rep(NA, k)
